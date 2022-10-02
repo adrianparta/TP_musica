@@ -8,7 +8,6 @@ class Genero{
     int pais;
     int tipoInstrumentacion;
     bool estado;
-    int contadorId();
     int contadorID();
     public:
     void Cargar();
@@ -56,14 +55,18 @@ int Genero::contadorID()
 
 void Genero::Cargar()
 {
-    idGenero=contadorID();
+    idGenero=contadorID()+1;
     cout<<"EL ID ES: "<<idGenero<<endl;
     cout<<"NOMBRE: ";
     cargarCadena(nombre,39);
     cout<<"PAIS DE ORIGEN: ";
+    int pais;
     cin>>pais;
+    if(!setPais(pais))return;
     cout<<"TIPO DE INSTRUMENTACION: ";
-    cin>>tipoInstrumentacion;
+    int tipo;
+    cin>>tipo;
+    if(!setTipoInstrumentacion(tipo))return;
     estado=true;
 }
 
@@ -85,5 +88,6 @@ bool Genero::leerDeDisco(int pos)
     fclose(p);
     return leyo;
 }
+
 
 #endif // CLASEGENERO_H_INCLUDED

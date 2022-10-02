@@ -34,7 +34,7 @@ class Interprete{
             return false;
         }
         bool setGenero(int gen){
-            if(gen>0 && gen<11){
+            if(gen>0 && gen<contadorDeGeneros()-1){
                 genero=gen;
                 return true;
             }
@@ -67,7 +67,7 @@ bool Interprete::Cargar(){
     int tip;
     cin>>tip;
     if(!setTipoInterprete(tip))return false;
-    cout<<"GENERO: ";
+    cout<<"GENERO MUSICAL DE 1 AL "<<contadorDeGeneros()-2<<": ";
     int gen;
     cin>>gen;
     if(!setGenero(gen))return false;

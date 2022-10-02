@@ -23,7 +23,8 @@ class Fecha
         void Cargar();
         void Mostrar();
         //sets
-        void setDia(int d){dia=d;}
+        void setDia(int d){
+            dia=d;}
         void setMes(int m){mes=m;}
         void setAnio(int a){anio=a;}
         //gets
@@ -64,6 +65,7 @@ bool fechavalida(int dia, int mes, int anio){
     }
     if (anio>anioActual)return false;
     if(anio<anioActual)return true;
+    return false;
 }
 
 #endif // FUNCIONESGLOBALES_H_INCLUDED

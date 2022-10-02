@@ -35,16 +35,7 @@ int menuCanciones()
         system("cls");
         switch(opcion)
             {
-            case 1: if(agregarCancion()==false)
-                        {
-                            cout<<"ERROR EN LA APERTURA DEL ARCHIVO"<<endl;
-                            system("pause");
-                            return -1;
-                        }
-                        else
-                        {
-                            cout<<"REGISTRO AGREGADO"<<endl;
-                        }
+            case 1: agregarCancion();
                 break;
             case 2: listarCancionID();
                 break;

@@ -2,9 +2,9 @@
 #define FUNCIONESCANCION_H_INCLUDED
 
 //PROTOTIPOS
-bool grabarCancion(Cancion reg);
-bool mostrarCanciones();
-bool agregarCancion();
+void grabarCancion(Cancion reg);
+void mostrarCanciones();
+void agregarCancion();
 void listarCancionID();
 void cargarCanciones(Cancion *v,int cant);
 Cancion cargarCancion();
@@ -19,15 +19,17 @@ Cancion cargarCancion()
     return reg;
 }
 
-bool grabarCancion(Cancion reg){
+void grabarCancion(Cancion reg){
     FILE *p;
     p=fopen(CANCIONES,"ab");
     if(p==NULL){
-        return false;
+        cout<<"no se pudo abrir el archivo"<<endl;
+        system("pause");
+        return;
     }
-    bool escribio=fwrite(&reg,sizeof reg, 1, p);
+    fwrite(&reg,sizeof reg, 1, p);
     fclose(p);
-    return escribio;
+    return;
 }
 
 void cargarCanciones(Cancion *v,int cant){
@@ -39,22 +41,24 @@ void cargarCanciones(Cancion *v,int cant){
         }
 }
 
-bool agregarCancion()
-{
+void agregarCancion(){
     Cancion reg;
     reg=cargarCancion();//validaciones
-    cout<<"cancion agregada correctamente"<<endl;
+    if(reg.getEstado()){
+        grabarCancion(reg);
+        return;
+    }
+    cout<<"no se pudo cargar la cancion"<<endl;
     system("pause");
-    if(grabarCancion(reg))return true;
-    return false;
+    return;
 }
 
-bool mostrarCanciones(){
+void mostrarCanciones(){
     Cancion obj;
     FILE *p;
     p=fopen(CANCIONES,"rb");
     if(p==NULL){
-        return false;
+        return;
     }
     while(fread(&obj,sizeof obj, 1, p)==1){
         if(obj.getEstado()){
@@ -64,7 +68,7 @@ bool mostrarCanciones(){
     }
     system("pause");
     fclose(p);
-	return true;
+	return;
 }
 
 void listarCancionID()

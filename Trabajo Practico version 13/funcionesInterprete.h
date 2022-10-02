@@ -2,28 +2,29 @@
 #define FUNCIONESINTERPRETE_H_INCLUDED
 
 ///PROTOTIPOS
-bool agregarInterprete();
+void agregarInterprete();
 void cargarInterpretes(Interprete *v,int cant);
-bool grabarInterprete(Interprete reg);
+void grabarInterprete(Interprete reg);
 void mostrarInterpretes();
 Interprete cargarInterprete();
 void listarInterpreteID();
 void modificarGenero();
 void eliminarInterprete();
+bool existeInterprete(int id);
 ///FIN PROTOTIPOS
 
 
-bool agregarInterprete()
+void agregarInterprete()
 {
     Interprete reg;
     reg=cargarInterprete();//validaciones
     if(!reg.getEstado()){
         cout<<"no se pudo guardar el registro"<<endl;
         system("pause");
-    return false;
+    return;
     }
-    if(grabarInterprete(reg))return true;
-    cout<<"error";return false;
+    grabarInterprete(reg);
+    return;
 }
 
 Interprete cargarInterprete()
@@ -31,10 +32,7 @@ Interprete cargarInterprete()
     Interprete reg;
     if(!reg.Cargar()){
         reg.setEstado(false);
-        return reg;
     }
-    cout<<"se cargo correctamente"<<endl;
-    system("pause");
     return reg;
 }
 
@@ -48,17 +46,17 @@ void cargarInterpretes(Interprete *v,int cant)
         }
 }
 
-bool grabarInterprete(Interprete reg){
+void grabarInterprete(Interprete reg){
     FILE *p;
     p=fopen(INTERPRETES,"ab");
     if(p==NULL){
-        return false;
+        return;
     }
-    bool escribio=fwrite(&reg,sizeof reg, 1, p);
+    fwrite(&reg,sizeof reg, 1, p);
     fclose(p);
     cout<<"se grabo correctamente"<<endl;
     system("pause");
-    return escribio;
+    return;
 }
 
 void mostrarInterpretes(){
@@ -194,5 +192,23 @@ void eliminarInterprete(){
     fclose(p);
 }
 
+bool existeInterprete(int id){
+Interprete obj;
+FILE *p;
+p=fopen(INTERPRETES,"rb");
+if(p==NULL){
+    cout<<"el archivo no pudo abrirse"<<endl;
+    system("pause");
+    fclose(p);
+    return false;
+}
+while(fread(&obj,sizeof obj,1,p)){
+    if(id==obj.getIdInterprete()){
+        fclose(p);
+        return true;
+    }
+}
+return false;
+}
 #endif // FUNCIONESINTERPRETE_H_INCLUDED
 

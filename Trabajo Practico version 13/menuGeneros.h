@@ -25,25 +25,17 @@ int menuGeneros()
         system("cls");
         switch(opcion)
             {
-            case 1: if(agregarGenero()==false)
-                        {
-                            cout<<"ERROR EN LA APERTURA DEL ARCHIVO"<<endl;
-                            system("pause");
-                            return -1;
-                        }
-                        else
-                        {
-                            cout<<"REGISTRO AGREGADO"<<endl;
-                        }
+            case 1: agregarGenero();
                 break;
             case 2: listarGeneroID();
                 break;
             case 3: listarGeneros();
                 break;
-            case 4:
+            case 4: modificarTipo();
                 break;
-            case 0:
-                return 0;
+
+            case 5: contadorDeGeneros();
+            case 0: return 0;
                 break;
 
             default: cout<<"ERROR"<<endl;

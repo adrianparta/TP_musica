@@ -6,15 +6,22 @@ using namespace std;
 
 const char *CANCIONES="canciones.dat";
 const char *INTERPRETES="interpretes.dat";
-const char *GENEROS="generos.dat";
+const char *GENEROS="GENEROS.dat";
 #include "funcionesGlobales.h"
+#include "claseGenero.h"
+#include "funcionesGenero.h"
+#include "claseInterprete.h"
+#include "funcionesInterprete.h"
 #include "menuCanciones.h"
 #include "menuInterpretes.h"
 #include "menuGeneros.h"
+
 #include "claseCancion.h"
 #include "funcionesCancion.h"
-#include "claseGenero.h"
-#include "funcionesGenero.h"
+
+
+
+
 
 
 int main()

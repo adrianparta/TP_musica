@@ -34,9 +34,13 @@ class Cancion
         void setIdCancion(int id){idCancion=id;}
         void setNombre(const char *nom){strcpy(nombre,nom);}
         void setNombreAutor(const char *nomAutor){strcpy(nombreAutor,nomAutor);}
-        void setIdInterprete(int idInt){idInterprete=idInt;}
+        void setIdInterprete(int idInt){
+            if(existeInterprete(idInt)){
+                idInterprete=idInt;
+            }
+        }
         bool setGenero(int gen){
-            if(gen>0 && gen<11){
+            if(gen>0 && gen<contadorDeGeneros()-1){
                 genero=gen;
                 return true;
             }
@@ -67,8 +71,7 @@ class Cancion
 };
 
 
-void Cancion::Cargar()
-{
+void Cancion::Cargar(){
     idCancion=contadorID();
     cout<<"el id es: "<<idCancion<<endl;
     cout<<"NOMBRE DE CANCION: ";
@@ -76,19 +79,34 @@ void Cancion::Cargar()
     cout<<"NOMBRE DE AUTOR: ";
     cargarCadena(nombreAutor,29);
     cout<<"INTERPRETE: ";
-    cin>>idInterprete;
+    int i;
+    cin>>i;
+    if(!existeInterprete(i)){
+        cout<<"no existe ese interprete"<<endl;
+        system("pause");
+        return;
+    }
+    setIdInterprete(i);
     cout<<"FECHA DE ESTRENO: ";
     fechaEstreno.Cargar();
-    estado=true;
+    if(!fechavalida(fechaEstreno.getDia(),fechaEstreno.getMes(),fechaEstreno.getAnio())){
+        cout<<"fecha invalida"<<endl;
+        system("pause");
+        return;
+    }
     cout<<"DURACION DE LA CANCION EN MINUTOS: ";
     int duracion;
     cin>>duracion;
     if(!setDuracionCancion(duracion))return;
-    cout<<"GENERO MUSICAL DE 1 A 10: ";
+    cout<<"GENERO MUSICAL DE 1 AL "<<contadorDeGeneros()-2<<": ";
     int gen;
     cin>>gen;
     if(!setGenero(gen))return;
-}
+    estado=true;
+    cout<<"cancion agregada correctamente"<<endl;
+    system("pause");
+    return;
+    }
 
 void Cancion::Mostrar()
 {
@@ -98,9 +116,8 @@ void Cancion::Mostrar()
     cout<<"INTERPRETE: "<<idInterprete<<endl;
     cout<<"FECHA DE ESTRENO: ";
     fechaEstreno.Mostrar();
-    cout<<endl;
     cout<<"DURACION DE LA CANCION EN MINUTOS: "<<duracionCancion<<endl;
-    cout<<"GENERO MUSICAL DE 1 A 10: "<<genero<<endl;
+    cout<<"GENERO: "<<genero<<endl;
 }
 
 int Cancion::contadorID()
