@@ -10,6 +10,7 @@ void cargarCanciones(Cancion *v,int cant);
 Cancion cargarCancion();
 void modificarGenero();
 void eliminarCancion();
+void copiaCanciones();
 //FIN PROTOTIPOS
 
 Cancion cargarCancion()
@@ -178,7 +179,35 @@ void eliminarCancion(){
     system("pause");
     fclose(p);
 }
-//int mostrarCancionID();
 
+void copiaCanciones()
+{
+    FILE *p;
+    Cancion reg;
+    int pos=0;
+    p=fopen("cancion.bkp","wb");
+    while(reg.leerDeDisco(pos++))
+	{
+		fwrite(&reg,sizeof reg,1,p);
+	}
+	fclose(p);
+	cout<<"SE REALIZO LA COPIA DEL ARCHIVO CORRECTAMENTE"<<endl;
+	system("pause");
+}
+
+void restaurarCanciones()
+{
+    FILE *p;
+    Cancion reg;
+    int pos=0;
+    p=fopen(CANCIONES,"wb");
+    while(reg.leerDeDiscoBkp(pos++))
+	{
+		fwrite(&reg,sizeof reg,1,p);
+	}
+	fclose(p);
+	cout<<"SE REALIZO LA RESTAURACION DEL ARCHIVO CORRECTAMENTE"<<endl;
+	system("pause");
+}
 #endif // FUNCIONESCANCION_H_INCLUDED
 

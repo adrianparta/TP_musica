@@ -13,6 +13,7 @@ class Genero{
     void Cargar();
     void Mostrar();
     bool leerDeDisco(int pos);
+    bool leerDeDiscoBkp(int pos);
     ///SETS
     void setNombre(const char *nom){strcpy(nombre,nom);}
     bool setPais(int p){
@@ -89,5 +90,14 @@ bool Genero::leerDeDisco(int pos)
     return leyo;
 }
 
-
+bool Genero::leerDeDiscoBkp(int pos)
+{
+    FILE *p;
+    p=fopen("genero.bkp","rb");
+    if(p==NULL) return false;
+    fseek(p, pos *sizeof(Genero),0);//nos posicionamos donde queremos leer
+    bool leyo=fread(this, sizeof (Genero),1,p);//lee el registro
+    fclose(p);
+    return leyo;
+}
 #endif // CLASEGENERO_H_INCLUDED

@@ -11,6 +11,7 @@ void listarInterpreteID();
 void modificarGenero();
 void eliminarInterprete();
 bool existeInterprete(int id);
+void copiaInterpretes();
 ///FIN PROTOTIPOS
 
 
@@ -209,6 +210,37 @@ while(fread(&obj,sizeof obj,1,p)){
     }
 }
 return false;
+}
+
+void copiaInterpretes()
+{
+    FILE *p;
+    Interprete reg;
+    int pos=0;
+    p=fopen("interprete.bkp","wb");
+    while(reg.leerDeDisco(pos++))
+	{
+		fwrite(&reg,sizeof reg,1,p);
+	}
+	fclose(p);
+	cout<<"SE REALIZO LA COPIA DEL ARCHIVO CORRECTAMENTE"<<endl;
+	system("pause");
+}
+
+void restaurarInterpretes(){
+
+    FILE *p;
+    Interprete reg;
+    int pos=0;
+    p=fopen(INTERPRETES,"wb");
+    while(reg.leerDeDiscoBkp(pos++))
+	{
+		fwrite(&reg,sizeof reg,1,p);
+	}
+	fclose(p);
+	cout<<"SE REALIZO LA RESTAURACION DEL ARCHIVO CORRECTAMENTE"<<endl;
+	system("pause");
+
 }
 #endif // FUNCIONESINTERPRETE_H_INCLUDED
 

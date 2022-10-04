@@ -41,6 +41,7 @@
 		<Unit filename="funcionesInterprete.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menuCanciones.h" />
+		<Unit filename="menuConfiguracion.h" />
 		<Unit filename="menuGeneros.h" />
 		<Unit filename="menuInterpretes.h" />
 		<Extensions />

@@ -10,10 +10,11 @@ class Interprete{
         Fecha fechaInicio;
         bool estado;
         int contadorID();
-        bool leerDeDisco(int pos);
     public:
         bool Cargar();
         void Mostrar();
+        bool leerDeDisco(int pos);
+        bool leerDeDiscoBkp(int pos);
         ///sets
         void setIdInterprete(int id){idInterprete=id;}
         void setNombre(const char *nom){strcpy(nombre,nom);}
@@ -34,7 +35,7 @@ class Interprete{
             return false;
         }
         bool setGenero(int gen){
-            if(gen>0 && gen<contadorDeGeneros()-1){
+            if(gen>0 && gen<contadorDeGeneros()+1){
                 genero=gen;
                 return true;
             }
@@ -67,7 +68,7 @@ bool Interprete::Cargar(){
     int tip;
     cin>>tip;
     if(!setTipoInterprete(tip))return false;
-    cout<<"GENERO MUSICAL DE 1 AL "<<contadorDeGeneros()-2<<": ";
+    cout<<"GENERO MUSICAL DE 1 AL "<<contadorDeGeneros()<<": ";
     int gen;
     cin>>gen;
     if(!setGenero(gen))return false;
@@ -106,7 +107,18 @@ int Interprete::contadorID()
 bool Interprete::leerDeDisco(int pos)
 {
     FILE *p;
-    p=fopen("INTERPRETES.dat","rb");
+    p=fopen(INTERPRETES,"rb");
+    if(p==NULL) return false;
+    fseek(p, pos *sizeof(Interprete),0);//nos posicionamos donde queremos leer
+    bool leyo=fread(this, sizeof (Interprete),1,p);//lee el registro
+    fclose(p);
+    return leyo;
+}
+
+bool Interprete::leerDeDiscoBkp(int pos)
+{
+    FILE *p;
+    p=fopen("interprete.bkp","rb");
     if(p==NULL) return false;
     fseek(p, pos *sizeof(Interprete),0);//nos posicionamos donde queremos leer
     bool leyo=fread(this, sizeof (Interprete),1,p);//lee el registro

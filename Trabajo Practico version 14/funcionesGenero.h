@@ -8,6 +8,7 @@ void listarGeneroID();
 bool listarGeneros();
 void modificarTipo();
 int contadorDeGeneros();
+void copiaGeneros();
 //FIN PROTOTIPOS
 
 void grabarGenero(Genero reg){
@@ -136,14 +137,41 @@ FILE *p;
 p=fopen(GENEROS,"rb");
 if(p==NULL){
         fclose(p);
-        return 10;
+        return 0;
     }
 fseek(p,0,2);
-int cantidad=ftell(p)/sizeof obj+1;
+int cantidad=ftell(p)/sizeof obj;
 fclose(p);
 return cantidad;
 }
 
+void copiaGeneros()
+{
+    FILE *p;
+    Genero reg;
+    int pos=0;
+    p=fopen("genero.bkp","wb");
+    while(reg.leerDeDisco(pos++))
+	{
+		fwrite(&reg,sizeof reg,1,p);
+	}
+	fclose(p);
+	cout<<"SE REALIZO LA COPIA DEL ARCHIVO CORRECTAMENTE"<<endl;
+	system("pause");
+}
 
-
+void restaurarGeneros()
+{
+    FILE *p;
+    Genero reg;
+    int pos=0;
+    p=fopen(GENEROS,"wb");
+    while(reg.leerDeDiscoBkp(pos++))
+	{
+		fwrite(&reg,sizeof reg,1,p);
+	}
+	fclose(p);
+	cout<<"SE REALIZO LA RESTAURACION DEL ARCHIVO CORRECTAMENTE"<<endl;
+	system("pause");
+}
 #endif // FUNCIONESGENERO_H_INCLUDED
