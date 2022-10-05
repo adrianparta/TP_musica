@@ -92,7 +92,7 @@ bool listarGeneros(){
 void modificarTipo(){
     Genero obj;
     FILE *p;
-    int pos=0;
+    int pos;
     p=fopen(GENEROS,"rb+");
     if(p==NULL){
         cout<<"el archivo no pudo abrirse"<<endl;
@@ -104,12 +104,6 @@ void modificarTipo(){
     cin>>pos;
     while(fread(&obj,sizeof obj,1,p)){
         if(pos==obj.getIdGenero()){
-            if(!obj.getEstado()){
-                cout<<"El ID existe pero esta oculto"<<endl;
-                system("pause");
-                fclose(p);
-                return;
-            }
             cout<<"ingrese un tipo de instrumentacion: ";
             int nuevoTipo;
             cin>>nuevoTipo;
@@ -118,7 +112,7 @@ void modificarTipo(){
                 fclose(p);
                 return;
             }
-            fseek(p,pos*sizeof obj,0);
+            fseek(p,(pos-1)*sizeof obj,0);
             fwrite(&obj,sizeof obj,1,p);
             fclose(p);
             cout<<"tipo de instrumentacion cambiado existosamente"<<endl;

@@ -73,11 +73,8 @@ bool Interprete::Cargar(){
     cin>>gen;
     if(!setGenero(gen))return false;
     cout<<"FECHA DE INICIO: ";
-    fechaInicio.Cargar();
-    if(!fechavalida(fechaInicio.getDia(),fechaInicio.getMes(),fechaInicio.getAnio())){
-        cout<<"fecha invalida"<<endl;
-    return false;
-    }
+    if(!fechaInicio.Cargar())return false;
+
     estado=true;
     return true;
 }

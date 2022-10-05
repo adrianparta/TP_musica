@@ -20,7 +20,7 @@ class Fecha
     private:
         int dia, mes, anio;
     public:
-        void Cargar();
+        bool Cargar();
         void Mostrar();
         //sets
         void setDia(int d){
@@ -33,7 +33,7 @@ class Fecha
         int getAnio(){return anio;}
 };
 
-void Fecha::Cargar()
+bool Fecha::Cargar()
 {
     cout<<"DIA: ";
     cin>>dia;
@@ -41,8 +41,12 @@ void Fecha::Cargar()
     cin>>mes;
     cout<<"ANIO: ";
     cin>>anio;
-
-
+    if(!fechavalida(dia, mes, anio)){
+        cout<<"fecha invalida"<<endl;
+        system("pause");
+        return false;
+    }
+    return true;
 }
 
 void Fecha::Mostrar()
@@ -51,7 +55,6 @@ void Fecha::Mostrar()
 }
 
 bool fechavalida(int dia, int mes, int anio){
-    int anioActual=2022;
     if(dia<1 || dia>31) return false;
     else if (mes<1 || mes>12) return false;
     else switch(mes)
@@ -63,10 +66,33 @@ bool fechavalida(int dia, int mes, int anio){
             if (dia>28)return false;
             break;
     }
-    if (anio>anioActual)return false;
-    if(anio<anioActual)return true;
+
+    time_t tiempo;
+  char cad[80];
+  struct tm *tmPtr;
+
+  tiempo = time(NULL);
+  tmPtr = localtime(&tiempo);
+
+int fecha[3];
+fecha[0]=tmPtr->tm_mday;
+fecha[1]=tmPtr->tm_mon+1;
+fecha[2]=1900+tmPtr->tm_year;
+
+    if (anio>fecha[2])return false;
+    if(anio<fecha[2])return true;
+    if(anio==fecha[2]){
+        if(mes>fecha[1])return false;
+        if (mes<fecha[1])return true;
+        if (mes==fecha[1]){
+            if(dia>fecha[0]){
+                return false;}
+            return true;
+        }
+    }
     return false;
 }
+
 
 #endif // FUNCIONESGLOBALES_H_INCLUDED
 

@@ -172,3 +172,49 @@
 
 1664854177 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16\menuconfiguracion.h
 
+1664943377 source:c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<cstdio>
+	<ctime>
+	"funcionesGlobales.h"
+	"claseGenero.h"
+	"funcionesGenero.h"
+	"claseInterprete.h"
+	"funcionesInterprete.h"
+	"menuCanciones.h"
+	"menuInterpretes.h"
+	"menuGeneros.h"
+	"menuConfiguracion.h"
+	"claseCancion.h"
+	"funcionesCancion.h"
+
+1664945286 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\funcionesglobales.h
+
+1664854177 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\clasegenero.h
+
+1664940673 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\funcionesgenero.h
+
+1664944454 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\claseinterprete.h
+
+1664854177 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\funcionesinterprete.h
+
+1664684696 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\menucanciones.h
+	"claseCancion.h"
+	"funcionesCancion.h"
+
+1664945315 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\clasecancion.h
+
+1664854177 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\funcionescancion.h
+
+1664671650 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\menuinterpretes.h
+	"claseInterprete.h"
+	"funcionesInterprete.h"
+
+1664684559 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\menugeneros.h
+	"claseGenero.h"
+	"funcionesGenero.h"
+
+1664854177 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\menuconfiguracion.h
+

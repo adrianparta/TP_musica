@@ -89,12 +89,7 @@ void Cancion::Cargar(){
     }
     setIdInterprete(i);
     cout<<"FECHA DE ESTRENO: ";
-    fechaEstreno.Cargar();
-    if(!fechavalida(fechaEstreno.getDia(),fechaEstreno.getMes(),fechaEstreno.getAnio())){
-        cout<<"fecha invalida"<<endl;
-        system("pause");
-        return;
-    }
+    if(!fechaEstreno.Cargar())return;
     cout<<"DURACION DE LA CANCION EN MINUTOS: ";
     int duracion;
     cin>>duracion;
