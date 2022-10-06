@@ -35,6 +35,7 @@
 		<Unit filename="claseCancion.h" />
 		<Unit filename="claseGenero.h" />
 		<Unit filename="claseInterprete.h" />
+		<Unit filename="datosInicio.h" />
 		<Unit filename="funcionesCancion.h" />
 		<Unit filename="funcionesGenero.h" />
 		<Unit filename="funcionesGlobales.h" />
@@ -44,6 +45,8 @@
 		<Unit filename="menuConfiguracion.h" />
 		<Unit filename="menuGeneros.h" />
 		<Unit filename="menuInterpretes.h" />
+		<Unit filename="menuReportes.h" />
+		<Unit filename="reportes.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

@@ -218,3 +218,110 @@
 
 1664854177 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 16.1\menuconfiguracion.h
 
+1665026639 source:c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<cstdio>
+	<ctime>
+	"funcionesGlobales.h"
+	"claseGenero.h"
+	"funcionesGenero.h"
+	"claseInterprete.h"
+	"funcionesInterprete.h"
+	"menuCanciones.h"
+	"menuInterpretes.h"
+	"menuGeneros.h"
+	"menuConfiguracion.h"
+	"claseCancion.h"
+	"funcionesCancion.h"
+	"reportes.h"
+	"menuReportes.h"
+
+1665027179 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\funcionesglobales.h
+
+1665026449 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\clasegenero.h
+
+1664940673 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\funcionesgenero.h
+
+1665026450 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\claseinterprete.h
+
+1665028934 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\funcionesinterprete.h
+
+1664684696 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\menucanciones.h
+	"claseCancion.h"
+	"funcionesCancion.h"
+
+1665026450 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\clasecancion.h
+
+1665029087 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\funcionescancion.h
+
+1664671650 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\menuinterpretes.h
+	"claseInterprete.h"
+	"funcionesInterprete.h"
+
+1664684559 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\menugeneros.h
+	"claseGenero.h"
+	"funcionesGenero.h"
+
+1664854177 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\menuconfiguracion.h
+
+1665029775 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\menureportes.h
+
+1665030444 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 17\reportes.h
+
+1665032009 source:c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<cstdio>
+	<ctime>
+	"funcionesGlobales.h"
+	"claseGenero.h"
+	"funcionesGenero.h"
+	"claseInterprete.h"
+	"funcionesInterprete.h"
+	"menuCanciones.h"
+	"menuInterpretes.h"
+	"menuGeneros.h"
+	"datosInicio.h"
+	"menuConfiguracion.h"
+	"claseCancion.h"
+	"funcionesCancion.h"
+	"reportes.h"
+	"menuReportes.h"
+
+1665031951 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\funcionesglobales.h
+
+1665034039 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\clasegenero.h
+
+1664940673 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\funcionesgenero.h
+
+1665033969 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\claseinterprete.h
+
+1665034446 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\funcionesinterprete.h
+
+1664684696 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\menucanciones.h
+	"claseCancion.h"
+	"funcionesCancion.h"
+
+1665033764 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\clasecancion.h
+
+1665034400 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\funcionescancion.h
+
+1664671650 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\menuinterpretes.h
+	"claseInterprete.h"
+	"funcionesInterprete.h"
+
+1664684559 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\menugeneros.h
+	"claseGenero.h"
+	"funcionesGenero.h"
+
+1665034225 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\datosinicio.h
+
+1665031951 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\menuconfiguracion.h
+
+1665030444 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\reportes.h
+
+1665029775 c:\users\adria\downloads\trabajo practico version 15\trabajo practico version 18.1\menureportes.h
+

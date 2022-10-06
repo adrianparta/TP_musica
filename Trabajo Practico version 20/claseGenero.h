@@ -14,6 +14,7 @@ class Genero{
     void Mostrar();
     bool leerDeDisco(int pos);
     bool leerDeDiscoBkp(int pos);
+    bool leerInicio(int pos);
     ///SETS
     void setNombre(const char *nom){strcpy(nombre,nom);}
     bool setPais(int p){
@@ -51,12 +52,12 @@ int Genero::contadorID()
         {
             pos++;
         }
-    return pos;
+    return pos+1;
 }
 
 void Genero::Cargar()
 {
-    idGenero=contadorID()+1;
+    idGenero=contadorID();
     cout<<"EL ID ES: "<<idGenero<<endl;
     cout<<"NOMBRE: ";
     cargarCadena(nombre,39);
@@ -94,6 +95,17 @@ bool Genero::leerDeDiscoBkp(int pos)
 {
     FILE *p;
     p=fopen("genero.bkp","rb");
+    if(p==NULL) return false;
+    fseek(p, pos *sizeof(Genero),0);//nos posicionamos donde queremos leer
+    bool leyo=fread(this, sizeof (Genero),1,p);//lee el registro
+    fclose(p);
+    return leyo;
+}
+
+bool Genero::leerInicio(int pos)
+{
+    FILE *p;
+    p=fopen("generosInicio.dat","rb");
     if(p==NULL) return false;
     fseek(p, pos *sizeof(Genero),0);//nos posicionamos donde queremos leer
     bool leyo=fread(this, sizeof (Genero),1,p);//lee el registro

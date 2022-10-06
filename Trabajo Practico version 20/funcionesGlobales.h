@@ -68,7 +68,6 @@ bool fechavalida(int dia, int mes, int anio){
     }
 
     time_t tiempo;
-  char cad[80];
   struct tm *tmPtr;
 
   tiempo = time(NULL);
@@ -92,7 +91,6 @@ fecha[2]=1900+tmPtr->tm_year;
     }
     return false;
 }
-
 
 #endif // FUNCIONESGLOBALES_H_INCLUDED
 

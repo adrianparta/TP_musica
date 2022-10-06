@@ -37,6 +37,8 @@ int menuConfiguracion()
                 break;
             case 6: restaurarGeneros();
                 break;
+            case 7: establecerDatosInicio();
+                break;
             case 0: return 0;
                 break;
 

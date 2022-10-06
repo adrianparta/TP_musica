@@ -15,6 +15,7 @@ class Interprete{
         void Mostrar();
         bool leerDeDisco(int pos);
         bool leerDeDiscoBkp(int pos);
+        bool leerInicio(int pos);
         ///sets
         void setIdInterprete(int id){idInterprete=id;}
         void setNombre(const char *nom){strcpy(nombre,nom);}
@@ -97,7 +98,7 @@ int Interprete::contadorID()
         {
             pos++;
         }
-    return pos;
+    return pos+1;
 }
 
 
@@ -116,6 +117,17 @@ bool Interprete::leerDeDiscoBkp(int pos)
 {
     FILE *p;
     p=fopen("interprete.bkp","rb");
+    if(p==NULL) return false;
+    fseek(p, pos *sizeof(Interprete),0);//nos posicionamos donde queremos leer
+    bool leyo=fread(this, sizeof (Interprete),1,p);//lee el registro
+    fclose(p);
+    return leyo;
+}
+
+bool Interprete::leerInicio(int pos)
+{
+    FILE *p;
+    p=fopen("interpretesInicio.dat","rb");
     if(p==NULL) return false;
     fseek(p, pos *sizeof(Interprete),0);//nos posicionamos donde queremos leer
     bool leyo=fread(this, sizeof (Interprete),1,p);//lee el registro

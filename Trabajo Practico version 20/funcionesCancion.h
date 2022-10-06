@@ -167,7 +167,7 @@ void eliminarCancion(){
                 return;
             }
             obj.setEstado(false);
-            fseek(p,pos*sizeof obj,0);
+            fseek(p,(pos-1)*sizeof obj,0);
             fwrite(&obj,sizeof obj,1,p);
             fclose(p);
             cout<<"cancion eliminada correctamente"<<endl;

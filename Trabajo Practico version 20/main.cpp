@@ -17,11 +17,13 @@ const char *GENEROS="GENEROS.dat";
 #include "menuCanciones.h"
 #include "menuInterpretes.h"
 #include "menuGeneros.h"
+
+#include "datosInicio.h"
 #include "menuConfiguracion.h"
 #include "claseCancion.h"
 #include "funcionesCancion.h"
-
-
+#include "reportes.h"
+#include "menuReportes.h"
 
 
 
@@ -53,7 +55,7 @@ int main()
                 break;
             case 3: menuGeneros();
                 break;
-            case 4: //REPORTES (SE DAN LOS EJERCICIOS EL DIA DEL PARCIAL)
+            case 4: menuReportes();//REPORTES (SE DAN LOS EJERCICIOS EL DIA DEL PARCIAL)
                 break;
             case 5: menuConfiguracion();
                 break;

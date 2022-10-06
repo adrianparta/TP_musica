@@ -28,6 +28,7 @@ class Cancion
         void Mostrar();
         bool leerDeDisco(int pos);
         bool leerDeDiscoBkp(int pos);
+        bool leerInicio(int pos);
         void setFechaEstreno(){
             fechaEstreno.Cargar();
         }
@@ -91,7 +92,7 @@ void Cancion::Cargar(){
     cout<<"FECHA DE ESTRENO: ";
     if(!fechaEstreno.Cargar())return;
     cout<<"DURACION DE LA CANCION EN MINUTOS: ";
-    int duracion;
+    float duracion;
     cin>>duracion;
     if(!setDuracionCancion(duracion))return;
     cout<<"GENERO MUSICAL DE 1 AL "<<contadorDeGeneros()<<": ";
@@ -124,7 +125,7 @@ int Cancion::contadorID()
         {
             pos++;
         }
-    return pos;
+    return pos+1;
 }
 
 bool Cancion::leerDeDisco(int pos)
@@ -142,6 +143,17 @@ bool Cancion::leerDeDiscoBkp(int pos)
 {
     FILE *p;
     p=fopen("cancion.bkp","rb");
+    if(p==NULL) return false;
+    fseek(p, pos *sizeof(Cancion),0);//nos posicionamos donde queremos leer
+    bool leyo=fread(this, sizeof (Cancion),1,p);//lee el registro
+    fclose(p);
+    return leyo;
+}
+
+bool Cancion::leerInicio(int pos)
+{
+    FILE *p;
+    p=fopen("cancionesInicio.dat","rb");
     if(p==NULL) return false;
     fseek(p, pos *sizeof(Cancion),0);//nos posicionamos donde queremos leer
     bool leyo=fread(this, sizeof (Cancion),1,p);//lee el registro
